@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/bundle.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="./main.css">
+
+    <title>Shares</title>
+
+
+  </head>
+  <body>
+    <div class="ui raised very padded text container segment" id="background">
+    <div class="ui container" id="profile-container">
+      <h1>MyShareManager</h1>
+
+    <!-- User Profile Cards -->
+      <div class="ui cards">
+  <div class="card" id ="family-cards">
+    <div class="content">
+      <img class="right floated mini ui image" src="./images/Bill_Decker.png">
+      <div class="header">
+        Bill Decker
+      </div>
+      <div class="meta">
+        User: 24681012
+      </div>
+    </div>
+    <div class="extra content">
+      <div class="ui two buttons">
+        <div class="ui basic black button">View</div>
+        <div class="ui basic red button">Remove User</div>
+      </div>
+    </div>
+  </div>
+  <div class="card" id ="family-cards">
+    <div class="content">
+      <img class="right floated mini ui image" src="./images/Myra_Decker.png">
+      <div class="header">
+        Anne Decker
+      </div>
+      <div class="meta">
+        User: 24681013
+      </div>
+    </div>
+    <div class="extra content">
+      <div class="ui two buttons">
+        <div class="ui basic black button">View</div>
+        <div class="ui basic red button">Remove User</div>
+      </div>
+    </div>
+  </div>
+  <div class="card" id ="family-cards">
+    <div class="content">
+      <img class="right floated mini ui image" src="./images/John_Decker.png">
+      <div class="header">
+        John Decker
+      </div>
+      <div class="meta">
+        User: 24681015
+      </div>
+    </div>
+    <div class="extra content">
+      <div class="ui two buttons">
+        <div class="ui basic black button">View</div>
+        <div class="ui basic red button">Remove User</div>
+      </div>
+    </div>
+  </div>
+      </div>
+    </div>
+    <br>
+
+    <h4 class="ui horizontal divider header">
+        <i class="folder open outline icon"></i>
+         My Portfolio
+      </h4>
+
+
+
+<div class="ui segment">
+  <div class="ui two column very relaxed grid">
+    <div class="column" id="add-shares-form">
+      <div>
+        <div class="field">
+        <label for="company search">Company Search:  </label>
+        <select id="company-list" class="ui dropdown">
+        </select>
+        </div>
+      </div>
+      <br>
+      <div>
+        <div class="field">
+        <label for="quantity">Quantity of Shares:</label>
+        <input class="ui huge icon input" type="number" id="quantity" step="50"/>
+        </div>
+      </div>
+      <br>
+        <input class="positive ui button" type="submit" id="save" value="Add Shares">
+    </div>
+    <div class="column">
+      <div class="ui cards" id="portfolio-container">
+      </div>
+    </div>
+  </div>
+  <div class="ui vertical divider">
+    </div>
+    </div>
+
+    <h4 class="ui horizontal divider header">
+        <i class="chart line icon"></i>
+         Performance View
+      </h4>
+      </div>
+  </body>
+</html>
