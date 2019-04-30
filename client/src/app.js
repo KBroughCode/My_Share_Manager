@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const usersPortfolio = new UsersPortfolio()
   usersPortfolio.getUserPortData()
+  usersPortfolio.bindEvents()
 
   const selectMarketView = new SelectMarketView()
   selectMarketView.bindEvents();

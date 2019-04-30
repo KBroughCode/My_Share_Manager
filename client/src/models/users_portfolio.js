@@ -8,11 +8,16 @@ class UsersPortfolio{
   }
 
   bindEvents(){
+    PubSub.subscribe('Users:single-user-id-ready', (event) =>{
+      const userID = event.detail
+      console.log(userID);
+      this.getUserPortData(userID)
+    })
 
   }
 
-  getUserPortData(){
-    const url = 'http://localhost:3000/shares/users_shares'
+  getUserPortData(userID){
+    const url = `http://localhost:3000/shares/users_shares/${userID}`
     const request = new RequestHelper(url);
     request.get()
     .then((data)=>{

@@ -1,3 +1,10 @@
 #family-cards{
   background: #3CB371;
 }
+
+.user-container{
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: flex-start;
+
+}

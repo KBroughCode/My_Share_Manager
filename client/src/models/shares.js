@@ -19,12 +19,11 @@ class Shares{
   }
 
   getShareData(selectCompany){
-    const url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${selectCompany}&interval=1min&apikey=6GR3MV93NBI8PBGT`
+    const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${selectCompany}&interval=1min&outputsize=full&apikey=6GR3MV93NBI8PBGT`
     const request = new RequestHelper(url);
     request.get()
     .then((data) =>{
       this.data = data;
-      console.log(data);
       PubSub.publish('Shares:all-data-loaded', this.data)
     })
     .catch((message)=>{

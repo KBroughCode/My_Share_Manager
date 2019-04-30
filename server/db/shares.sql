@@ -1,6 +1,7 @@
-DROP TABLE Users;
-DROP TABLE Shares;
 DROP TABLE Users_Shares;
+DROP TABLE Shares;
+DROP TABLE Users;
+
 
 CREATE TABLE Users(
   id SERIAL PRIMARY KEY,
@@ -13,8 +14,7 @@ CREATE TABLE Users(
 CREATE TABLE Shares(
 id SERIAL PRIMARY KEY,
 name VARCHAR(255),
-symbol VARCHAR(8),
-user_id INT REFERENCES Users(id)
+symbol VARCHAR(8)
 );
 
 CREATE TABLE Users_Shares(
@@ -25,10 +25,9 @@ quantity INT
 );
 
 
-INSERT INTO Users(name,age,user_ID) VALUES ('Bill Decker', 48, 24681012);
-INSERT INTO Users(name,age,user_ID) VALUES ('Anne Decker', 46, 24681013);
-INSERT INTO Users(name,age,user_ID) VALUES ('Myra Decker', 16, 24681014);
-INSERT INTO Users(name,age,user_ID) VALUES ('John Decker', 12, 24681015);
+INSERT INTO Users(name,age,user_ID,img_url) VALUES ('Bill Decker', 48, 24681012,'Bill_Decker.png');
+INSERT INTO Users(name,age,user_ID,img_url) VALUES ('Anne Decker', 46, 24681013,'Anne_Decker.png');
+INSERT INTO Users(name,age,user_ID,img_url) VALUES ('John Decker', 12, 24681015,'John_Decker.png');
 
 
 INSERT INTO Shares(name, symbol) VALUES('3i','III');
