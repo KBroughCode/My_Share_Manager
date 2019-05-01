@@ -23,6 +23,8 @@ class CurrentPortfolioView {
       this.createCard(share)
     });
   }
+
+
   clearShares(){
     this.container.innerHTML = '';
   }
@@ -37,29 +39,54 @@ class CurrentPortfolioView {
       header.classList.add('header')
       header.innerHTML = share.name
 
-    const livePrice = `https://www.alphavantage.co/   query?function=GLOBAL_QUOTE&symbol=${share.symbol}&interval=1min&outputsize=full&apikey=6GR3MV93NBI8PBGT`
-    const request = new RequestHelper(livePrice);
-    request.get()
-    .then((livePrice) =>{
+    const livePrice = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${share.symbol}&interval=1min&outputsize=full&apikey=6GR3MV93NBI8PBGT`
+      const request = new RequestHelper(livePrice);
+      request.get()
+        .then((livePrice) =>{
       this.data = livePrice;
       const price = livePrice['Global Quote']['05. price'];
+      console.log(livePrice);
 
     const currentPrice = document.createElement('div')
       currentPrice.classList.add('meta')
-      currentPrice.innerHTML = `Price Per Share: ${price}`;
+      currentPrice.innerHTML = `Price Per Share:£ ${price/100}`;
 
     const holdingsValue = document.createElement('div')
-      currentPrice.classList.add('meta')
-      currentPrice.innerHTML = `Total Holdings Value: ${price * share.quantity}`;
+      holdingsValue.classList.add('meta')
+      holdingsValue.innerHTML = `Total Holdings Value: ${price * share.quantity}`;
+
+    const container = document.createElement('div');
+    container.id = 'arrow-container'
+    container.classList.add('right','floated')
+
+    const priceDifference = document.createElement('div')
+        priceDifference.classList.add('meta')
+        priceDifference.innerHTML = livePrice['Global Quote']['10. change percent'];
+
+    const image = document.createElement('img')
+      image.classList.add('ui','right','floated','mini','image')
+        if (livePrice['Global Quote']['05. price'] > livePrice['Global Quote']['02. open']){
+      image.src = `Images/upArrow.png`
+        }else if(livePrice['Global Quote']['05. price'] < livePrice['Global Quote']['02. open']){
+      image.src = `Images/downArrow.png`
+        }else{
+      image.src = `Images/Bill_Decker.png`
+    };
+
+    // const totalProfileValue =
 
     const content = document.createElement('div')
       content.classList.add('content')
 
-
     const card = document.createElement('div')
       card.classList.add('ui')
       card.classList.add('card')
+      card.style.background = '#FAF0E6';
 
+
+    container.appendChild(image)
+    container.appendChild(priceDifference)
+    content.appendChild(container)
     content.appendChild(header)
     content.appendChild(meta)
     content.appendChild(currentPrice)
@@ -69,9 +96,7 @@ class CurrentPortfolioView {
     this.container.appendChild(card)
 
     })
-
   }
-
 }
 
 module.exports = CurrentPortfolioView;

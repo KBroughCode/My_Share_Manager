@@ -2,9 +2,33 @@
   background: #3CB371;
 }
 
-.user-container{
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-content: flex-start;
+#background{
+  background: #87CEFA;
+}
 
+#portfolio-cards{
+  background: #FFA07A;
+}
+
+.view-background{
+  background: #D3D3D3;
+}
+
+.ui.segment{
+  background: #D3D3D3;
+}
+
+.column{
+  display: flex;
+}
+
+#arrow-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ui-right-floated{
+  flex-direction: column;
+  justify-content: center;
 }
