@@ -22,6 +22,13 @@ router.get('/users_shares/:id', function (req, res){
   });
 });
 
-
+//REMOVE users
+router.delete('/users/:id', function(req,res){
+  SqlRunner.run('DELETE FROM users WHERE id = $1',[req.params.id]).then((results)=>{
+    SqlRunner.run('SELECT * FROM users').then((result)=>{
+      res.status(201).json(result.rows)
+    })
+  })
+})
 
 module.exports = router;

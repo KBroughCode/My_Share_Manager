@@ -26,8 +26,8 @@ quantity INT
 
 
 INSERT INTO Users(name,age,user_ID,img_url) VALUES ('Bill Decker', 48, 24681012,'Bill_Decker.png');
-INSERT INTO Users(name,age,user_ID,img_url) VALUES ('Anne Decker', 46, 24681013,'Anne_Decker.png');
-INSERT INTO Users(name,age,user_ID,img_url) VALUES ('John Decker', 12, 24681015,'John_Decker.png');
+INSERT INTO Users(name,age,user_ID,img_url) VALUES ('Anne Decker', 14, 24681013,'Anne_Decker.png');
+INSERT INTO Users(name,age,user_ID,img_url) VALUES ('John Decker', 12, 24681014,'John_Decker.png');
 
 
 INSERT INTO Shares(name, symbol) VALUES('3i','III');

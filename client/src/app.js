@@ -6,6 +6,7 @@ const UsersPortfolio = require ('./models/users_portfolio.js');
 const CurrentPortfolioView = require ('./views/current_portfolio_view.js');
 const SelectMarketView = require ('./views/select_market_view.js');
 const SelectProfileView = require ('./views/select_profile_views.js');
+// const MarketCatalogue = require ('./views/market_view.js');
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,12 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
   shares.getShareData();
   shares.bindEvents();
 
+  const users = new Users()
+  users.getUserData();
+  users.bindEvents();
+
   const companies = new Companies()
   companies.getCompNameData();
   companies.bindEvents();
-
-  const users = new Users()
-  users.getUserData();
 
   const usersPortfolio = new UsersPortfolio()
   usersPortfolio.getUserPortData()
@@ -34,6 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const selectProfileView = new SelectProfileView()
   selectProfileView.bindEvents();
+
+  // const marketCatalogue = new MarketCatalogue()
+  // marketCatalogue.bindEvents()
 
 
 

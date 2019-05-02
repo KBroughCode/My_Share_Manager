@@ -8,7 +8,10 @@ class Users{
   }
 
   bindEvents(){
-
+    PubSub.subscribe('Users: user-removed', (event)=>{
+      const userID = event.detail;
+      this.removeUser(userID)
+    })
   }
 
   getUserData(){
@@ -17,13 +20,23 @@ class Users{
     request.get()
     .then((data)=>{
       this.data = data;
+      console.log(data);
       PubSub.publish('Shares:users-name-list', this.data);
-      console.log(this.data);
     })
     .catch((message)=>{
       console.error(message);
     })
   }
+
+  removeUser(userID){
+    const url = `http://localhost:3000/shares/users/${userID}`
+    const request = new RequestHelper(url);
+    request.delete(userID)
+    .then((users)=>{
+      PubSub.publish('Shares:users-name-list', users);
+    })
+    .catch(console.error)
+    }
 
 }
 

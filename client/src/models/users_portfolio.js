@@ -22,11 +22,41 @@ class UsersPortfolio{
     request.get()
     .then((data)=>{
       this.data = data;
-      PubSub.publish('Shares:users-portfolio-list', this.data);
-      console.log(this.data);
+
+      return data;
     })
-    .catch((message)=>{
-      console.error(message);
+    // data from get getUserPortData function is collected and then passed in as shares below
+
+    .then((shares)=>{
+      // promises array created so we can store each promise request
+      const promises = [];
+      //for each instance of share we create a new request and push this in thr promises array
+
+      shares.forEach((share)=>{
+        const livePrice = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${share.symbol}&interval=1min&outputsize=full&apikey=6GR3MV93NBI8PBGT`
+        const request = new RequestHelper(livePrice);
+        const promise = request.get()
+        promises.push(promise)
+      })
+
+      Promise.all(promises).then((results)=>{
+
+      const concatResults = [];
+
+        results.forEach((result, index)=>{
+
+          const price = result['Global Quote']['05. price']
+          const changePercent = result['Global Quote']['10. change percent']
+          const openPrice = result['Global Quote']['02. open']
+          shares[index].price = price
+          shares[index].changePercent = changePercent
+          shares[index].openPrice = openPrice
+
+          concatResults.push(shares[index]);
+      })
+        console.log(concatResults);
+        PubSub.publish('Shares:users-portfolio-list', concatResults)
+      })
     })
   }
 

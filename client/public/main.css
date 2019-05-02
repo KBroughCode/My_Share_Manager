@@ -1,13 +1,15 @@
-#family-cards{
-  background: #3CB371;
+h1 span{
+  color: white;
 }
-
 #background{
-  background: #87CEFA;
+  background: #6F364E;
 }
 
-#portfolio-cards{
-  background: #FFA07A;
+.cards{
+  background-image: #FFA07A;
+  opacity: 0.7;
+  transition: 1s;
+  right: 0;
 }
 
 .view-background{

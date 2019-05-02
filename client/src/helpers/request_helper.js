@@ -26,6 +26,7 @@ class RequestHelper{
   })
     .then((response) => response.json());
   }
+  
 }
 
 module.exports = RequestHelper;
