@@ -5,7 +5,6 @@ const DataHelper = {
       return total + number;
     })
   }
-
 }
 
 module.exports = DataHelper;

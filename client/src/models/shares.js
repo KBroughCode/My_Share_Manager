@@ -26,7 +26,6 @@ class Shares{
     request.get()
     .then((data) =>{
       this.data = data;
-      console.log(data);
       PubSub.publish('Shares:all-data-loaded', this.data)
     })
     .catch((message)=>{

@@ -47,7 +47,7 @@ class SelectProfileView{
 
     const removeButton = document.createElement('div')
     removeButton.classList.add('ui', 'basic', 'red', 'button')
-    removeButton.textContent = 'Remove User'
+    removeButton.textContent = 'Remove'
     removeButton.value = user.id
     //event listener for click on remove button to call remove user function
     removeButton.addEventListener('click',(event)=>{

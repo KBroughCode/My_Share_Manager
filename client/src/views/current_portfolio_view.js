@@ -53,7 +53,7 @@ calculatePortTotal(shares){
     header.innerHTML = share.name
 
     const currentPrice = document.createElement('div')
-    const sharePrice = share.price / 10.0
+    const sharePrice = share.price / 100
     currentPrice.classList.add('meta')
     currentPrice.innerHTML = 'Price Per Share:' + sharePrice
 
@@ -80,7 +80,7 @@ calculatePortTotal(shares){
         }else if(share.price < share.openPrice ){
       image.src = `Images/downArrow.png`
         }else{
-      image.src = `Images/Bill_Decker.png`
+      image.src = `Images/nutArrow.png`
     };
 
     const content = document.createElement('div')

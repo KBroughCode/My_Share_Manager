@@ -54,13 +54,13 @@ createMarketCard(shares){
   const content = document.createElement('div')
   content.classList.add('content')
 
-  const marketcard = document.createElement('div')
-  card.classList.add('ui')
-  card.classList.add('card')
-  card.style.borderColor = 'black'
-  card.style.borderStyle = 'solid'
-  card.style.background = '#FAF0E6';
-  card.style.opacity = '0.7';
+  const marketCard = document.createElement('div')
+  marketCard.classList.add('ui')
+  marketCard.classList.add('card')
+  marketCard.style.borderColor = 'black'
+  marketCard.style.borderStyle = 'solid'
+  marketCard.style.background = '#FAF0E6';
+  marketCard.style.opacity = '0.7';
 
 
   container.appendChild(image)
@@ -72,7 +72,6 @@ createMarketCard(shares){
   marketCard.appendChild(content)
 
   this.container.appendChild(marketCard)
-
 
   }
 }

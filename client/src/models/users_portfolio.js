@@ -22,7 +22,6 @@ class UsersPortfolio{
     request.get()
     .then((data)=>{
       this.data = data;
-
       return data;
     })
     // data from get getUserPortData function is collected and then passed in as shares below
@@ -54,7 +53,6 @@ class UsersPortfolio{
 
           concatResults.push(shares[index]);
       })
-        console.log(concatResults);
         PubSub.publish('Shares:users-portfolio-list', concatResults)
       })
     })
